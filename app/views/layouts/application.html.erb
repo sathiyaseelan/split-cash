@@ -50,9 +50,48 @@
           </div>
           <div class="navbar-collapse collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li>
+                <%= link_to "/path1" do %>
+                  <i class="fa fa-bell" aria-hidden="true"></i> My Events
+                <% end %>
+              </li>
+              <li>
+                <%= link_to groups_path do %>
+                  <i class="fa fa-users" aria-hidden="true"></i> My Groups
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "/path3" do %>
+                  <i class="fa fa-history" aria-hidden="true"></i> History
+                <% end %>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              
+              <% if user_signed_in? %>
+                <li>
+                  <%= link_to  ("#") do  %>
+                    <i class="fa fa-user" aria-hidden="true"></i> My Profile
+                  <%end %>
+                </li>
+                <li>
+                  <%= link_to destroy_user_session_path, method: :delete do %>
+                    <i class="fa fa-sign-out" aria-hidden="true"></i> Log out
+                  <% end %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to new_user_session_path do %>
+                    <i class="fa fa-sign-in" aria-hidden="true"></i> Log in
+                  <%end %>
+                </li>
+                <li></li>
+                <li>
+                  <%= link_to ( new_user_registration_path)  do %>
+                    <i class="fa fa-user-plus" aria-hidden="true"></i> Sign up
+                  <% end %>
+                </li>
+              <% end %>
             </ul>
           </div>
       </div>
