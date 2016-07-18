@@ -10,4 +10,13 @@ class Role < ApplicationRecord
             :allow_nil => true
 
   scopify
+  
+  def self.group_roles
+    #Group.find_roles.pluck(:name).uniq
+    ['member', 'moderator']
+  end
+  
+  def self.app_roles
+    ['admin','user']
+  end
 end

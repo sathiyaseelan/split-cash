@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
   # GET /groups.json
   def index
     @groups = Group.all
+    render 'index'
   end
 
   # GET /groups/1
@@ -25,11 +26,14 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(group_params)
-
     respond_to do |format|
       if @group.save
-        format.html { redirect_to @group, notice: 'Group was successfully created.' }
-        format.json { render :show, status: :created, location: @group }
+        if current_user.add_role(:moderator, @group)
+          format.html { redirect_to @group, notice: 'Group was successfully created.' }
+          format.json { render :show, status: :created, location: @group }
+        else
+          @group.destroy
+        end
       else
         format.html { render :new }
         format.json { render json: @group.errors, status: :unprocessable_entity }
@@ -65,6 +69,7 @@ class GroupsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_group
       @group = Group.find(params[:id])
+      
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

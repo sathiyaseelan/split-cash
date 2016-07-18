@@ -1,6 +1,10 @@
-<h1>Editing Group</h1>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Edit Group</h3>
+  </div>
+  <%= render 'form', group: @group %>
+</div>
 
-<%= render 'form', group: @group %>
 
 <%= link_to 'Show', @group %> |
 <%= link_to 'Back', groups_path %>

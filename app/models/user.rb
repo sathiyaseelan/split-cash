@@ -4,6 +4,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,:confirmable,:lockable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :members
-  has_many :groups, through: :members
+  
+  
+  def groups
+    puts self
+    Group.with_role(Role.group_roles, self)
+  end
+  
 end
