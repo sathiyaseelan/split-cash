@@ -1,24 +1,21 @@
-# README
+Split-Cash
+=
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application is to split the cash among the friends.
 
-Things you may want to cover:
+Features
+-
 
-* Ruby version
+* Authentication of user
+* Authorization of users
+* Creating a plan
+* Credit payment.
+* Calculate the amount to be paid by the others.
+* Dashboard
 
-* System dependencies
 
-* Configuration
+Usecases
+-
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Managing monthly expenses among members in a room on sharing basis
+* Managing money for a particular trip
