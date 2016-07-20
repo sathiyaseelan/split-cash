@@ -27,13 +27,10 @@
                 <td><strong>Name:</strong> <%= user.full_name %></td>
                 <td><strong>Email:</strong> <%= user.email %></td>
                 <td>
-                    <strong>Profile:</strong> <%= link_to "View Profile", user_path(user), class: "btn btn-xs btn-success" %>
-                    <% if current_user.not_users_with?(user.id) %>
-                    <%= link_to "Add as my user", add_user_path(user: current_user, user: user),
+                    <strong>Profile:</strong> <%= link_to "View Profile", '', class: "btn btn-xs btn-success" %>
+                    <%= link_to "Add as my user", '',
                                 class: 'btn btn-xs btn-success', method: :post %>
-                    <% else %>
                         <span class='label label-primary'>You are users</span>
-                    <% end %>
                 </td>
             </tr>
             <% end %>
