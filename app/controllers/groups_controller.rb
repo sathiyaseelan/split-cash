@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_group, only: [:show, :edit, :update, :destroy, :add_member]
 
   # GET /groups
   # GET /groups.json
@@ -11,6 +11,7 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+    @members = @group.members
   end
 
   # GET /groups/new
@@ -65,6 +66,15 @@ class GroupsController < ApplicationController
     end
   end
 
+  def add_member
+    user = User.find(id: params[:group][:user_id])
+    user.add_role(:member, @group)
+    respond_to do |format|
+      format.html { redirect_to @group, notice: 'Member Added to Group' }
+      format.json { head :no_content }
+    end
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
@@ -75,5 +85,9 @@ class GroupsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
       params.require(:group).permit(:name)
+    end
+    
+    def member_params
+      params.require(:group).permit(:user_id)
     end
 end

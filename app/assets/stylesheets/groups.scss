@@ -1,18 +1,19 @@
 // Place all the styles related to the Groups controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.group-box {
+.group-box .member-box{
     background-color: #EFEFEF;
 }
 
-.group-box:hover {
+.group-box:hover  .member-box:hover{
     background-color: white;
     border-color: #EFEFEF;
     color: #EFEFEF !important;
 }
 
 .action_bar {
-    position: relative;
+ /*   position: relative;
     top: 40px;
     left: 160px;
+*/
 }

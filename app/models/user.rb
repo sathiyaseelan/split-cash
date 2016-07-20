@@ -6,9 +6,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   
   
-  def groups
-    puts self
-    Group.with_role(Role.group_roles, self)
-  end
-  
+    def groups
+        Group.with_role(Role.group_roles, self)
+    end
+
 end
