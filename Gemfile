@@ -21,8 +21,6 @@ gem 'devise-bootstrap-views'
 gem 'devise'
 # Authorization gem
 gem 'cancancan'
-# Roles gem
-gem 'rolify'
 
 # Gem for pagination
 gem 'kaminari'

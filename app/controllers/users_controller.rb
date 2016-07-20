@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     def mygroups
-      @groups = current_user.groups
+#      @groups = current_user.groups
     end
 
     def search

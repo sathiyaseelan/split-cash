@@ -1,9 +1,13 @@
-class Member < User
-    
-    attr_accessor :group_id, :roles
+class Member < ApplicationRecord
+  belongs_to :user
+  belongs_to :group
 
-    def get_roles_for_group(group_id)
-        roles.select{|r| r.resource_id == @group.id}.pluck(:name)    
-    end
-    
+  def is_moderator?
+    role == :moderator
+  end
+
+  def is_member?
+    role == :member
+  end
+
 end

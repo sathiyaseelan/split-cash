@@ -151,7 +151,6 @@ GEM
     ref (2.0.0)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
-    rolify (5.1.0)
     sass (3.4.22)
     sass-rails (5.0.5)
       railties (>= 4.0.0, < 6)
@@ -219,7 +218,6 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.0)
   rails_12factor
-  rolify
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
