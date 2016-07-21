@@ -3,11 +3,11 @@ class Member < ApplicationRecord
   belongs_to :group
 
   def is_moderator?
-    role == :moderator
+    role == 'moderator'
   end
 
   def is_member?
-    role == :member
+    role == 'member'
   end
 
 end

@@ -4,7 +4,16 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all
+    members = current_user.members.includes(:group)
+    @groups_as_moderator = []
+    @groups_as_member = []
+    members.each do |member|
+      if member.is_member?
+        @groups_as_member << member.group
+      else
+        @groups_as_moderator << member.group
+      end
+    end
     render 'index'
   end
 

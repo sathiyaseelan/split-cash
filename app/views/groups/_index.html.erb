@@ -1,33 +1,66 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3>My groups</h3>
+    <h3>Groups moderated by me...</h3>
   </div>
-</div>  
+</div>
+
 <div class="row">
-        <% @groups.each do |group| %>
+  <% @groups_as_moderator.each do |group| %>
+  
+    <div class="col-sm-6 col-md-4">
+    <div class="group-box thumbnail">
+      <div class="caption">
+      <h4><%= group.name%></h4>
         
-          <div class="col-sm-6 col-md-4">
-          <div class="group-box thumbnail">
-            <div class="caption">
-            <h4><%= group.name%></h4>
-              
-            <p class="action_bar">
-            <%= link_to group, class: 'btn btn-success btn-sm' do%>
-              <i class="fa fa-inbox fa-2x" aria-hidden="true"></i>
-              <% end %>
-              <%= link_to  edit_group_path(group), class: 'btn btn-warning btn-sm' do %>
-                <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-              <% end %>
-              <%= link_to  group, method: :delete,class: 'btn btn-danger btn-sm',
-              data: { confirm: 'Are you sure?' } do %>
-              <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-              <% end %>
-            </p>
-          </div>
-          </div>
-          </div>
-          
+      <p class="action_bar">
+      <%= link_to group, class: 'btn btn-success btn-sm' do%>
+        <i class="fa fa-inbox fa-2x" aria-hidden="true"></i>
         <% end %>
-        </div>
+        <%= link_to  edit_group_path(group), class: 'btn btn-warning btn-sm' do %>
+          <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+        <% end %>
+        <%= link_to  group, method: :delete,class: 'btn btn-danger btn-sm',
+        data: { confirm: 'Are you sure?' } do %>
+        <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+        <% end %>
+      </p>
+    </div>
+    </div>
+    </div>
+    
+  <% end %>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Groups, I'm member of</h3>
+  </div>
+</div>
+<div class="row">
+  <% @groups_as_member.each do |group| %>
+  
+    <div class="col-sm-6 col-md-4">
+    <div class="group-box thumbnail">
+      <div class="caption">
+      <h4><%= group.name%></h4>
+        
+      <p class="action_bar">
+      <%= link_to group, class: 'btn btn-success btn-sm' do%>
+        <i class="fa fa-inbox fa-2x" aria-hidden="true"></i>
+        <% end %>
+        <%= link_to  edit_group_path(group), class: 'btn btn-warning btn-sm' do %>
+          <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+        <% end %>
+        <%= link_to  group, method: :delete,class: 'btn btn-danger btn-sm',
+        data: { confirm: 'Are you sure?' } do %>
+        <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+        <% end %>
+      </p>
+    </div>
+    </div>
+    </div>
+    
+  <% end %>
+</div>
 <br>
 <%= link_to 'New Group', new_group_path, class: 'btn btn-primary btn-md' %>
