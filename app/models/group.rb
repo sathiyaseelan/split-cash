@@ -13,7 +13,6 @@ class Group < ApplicationRecord
     end
 
     def remove_member(user)
-
         Member.where(user: user, group: self, role: :member).first.destroy
     end
 
