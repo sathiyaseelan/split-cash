@@ -21,6 +21,7 @@ en:
         action: "Confirm my account"
         greeting: "Welcome %{recipient}!"
         instruction: "You can confirm your account email through the link below:"
+        content: "It's a pleasure to have you onboarding to split-cash. Now you can easily track/manage your group/room expenses.To know more, Please visit the help section."
         subject: "Confirmation instructions"
       reset_password_instructions:
         action: "Change my password"

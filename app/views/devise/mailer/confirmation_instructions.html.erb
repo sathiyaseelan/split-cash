@@ -1,4 +1,8 @@
-<p><%= t('.greeting', :recipient => @resource.email, :default => "Welcome #{@resource.email}!") %></p>
+<h1>Welcome to Split-Cash</h1>
+<div class="jumbotron">
+  <%= t('.content')%>
+</div>
+<p><%= t('.greeting', :recipient => @resource.first_name, :default => "Hi #{@resource.email}!") %></p>
 
 <p><%= t('.instruction', :default => "You can confirm your account email through the link below:") %></p>
 

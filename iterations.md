@@ -44,6 +44,6 @@ Iteration 1
 * ~~Heroku & SendGrid Setup~~
 * ~~Page Layout Setup~~
 * ~~Sign up / Login Customization~~
-* Confirmation mail Customization
+* ~~Confirmation mail Customization~~
 * Create Model,pages,controllers skeleton for user management
 * Create Test classes for User Management
