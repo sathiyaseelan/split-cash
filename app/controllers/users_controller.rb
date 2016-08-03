@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
 
-    def mygroups
-#      @groups = current_user.groups
-    end
-
+    
     def search
       search_param = params[:search_param]
       @users = User.find_users(search_param)
