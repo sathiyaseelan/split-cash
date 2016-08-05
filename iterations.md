@@ -45,5 +45,5 @@ Iteration 1
 * ~~Page Layout Setup~~
 * ~~Sign up / Login Customization~~
 * ~~Confirmation mail Customization~~
-* Create Model,pages,controllers skeleton for user management
+* ~~Create Model,pages,controllers skeleton for user management~~
 * Create Test classes for User Management

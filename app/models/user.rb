@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,:confirmable,:lockable,
          :recoverable, :rememberable, :trackable, :validatable
+  validates :first_name, presence: true, length: { minimum: 3, maximum: 25 }
+  validates :last_name, presence: true, length: {minimum: 1, maximum: 25 }
 
     has_many :members
     has_many :groups, through: :members
@@ -15,5 +17,5 @@ class User < ApplicationRecord
       User.where("email like ? or first_name like ? or last_name like ?","%#{search_param}%","%#{search_param}%","%#{search_param}%")
     end
 
-    
+
 end
