@@ -1,8 +1,9 @@
 class Group < ApplicationRecord
 
-    has_many :members
+    has_many :members, :dependent => :destroy
     has_many :users, through: :members
-    
+    validates :name, presence: true
+    validates :description, presence: true
     def moderators
       members.select {|member| member.role == 'moderator'}
     end
@@ -26,7 +27,7 @@ class Group < ApplicationRecord
             raise 'Cannot delete..Only one moderator is available!'
         end
     end
-    
+
     def remove_moderator(user)
       begin
         remove_moderator!(user)

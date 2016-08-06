@@ -1,12 +1,12 @@
 <h3>Members</h3>
 <div class="row">
   <% @members.each do |member| %>
-  
+
     <div class="col-sm-4 col-md-3">
       <div class="member-box thumbnail">
         <div class="caption">
-          <h4><%= member.email%></h4>
-            <%= hidden_field_tag "member_" + member.id.to_s, member.roles.pluck(:name) %>
+          <h4><%= member.user.email%></h4>
+            <%= hidden_field_tag "member_" + member.id.to_s, member.role %>
           <p class="action_bar">
           <%= link_to '', class: 'btn btn-success btn-sm' do%>
             <i class="fa fa-inbox fa-2x" aria-hidden="true"></i>

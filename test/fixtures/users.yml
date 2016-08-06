@@ -5,7 +5,22 @@
 # below each fixture, per the syntax in the comments below
 #
 
-test_user1:
-  email: test_user@split-cash.com
-  first_name: test
+user1:
+  email: test_user1@split-cash.com
+  first_name: test1
+  last_name: t
+
+user2:
+  email: test_user2@split-cash.com
+  first_name: test2
+  last_name: t
+
+user3:
+  email: test_user3@split-cash.com
+  first_name: test3
+  last_name: t
+
+user4:
+  email: test_user4@split-cash.com
+  first_name: test4
   last_name: t

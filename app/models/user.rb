@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true, length: { minimum: 3, maximum: 25 }
   validates :last_name, presence: true, length: {minimum: 1, maximum: 25 }
   paginates_per 5
-  has_many :members
+  has_many :members, :dependent => :destroy
   has_many :groups, through: :members
 
   def full_name

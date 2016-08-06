@@ -48,12 +48,13 @@ Iteration 1
 * ~~Create Model,pages,controllers skeleton for user management~~
 * ~~Create Test classes for User Management~~
 
-
 Iteration 2
 --
 
 * Send invitaion mail for new / existing user
-* Search Users
-* Define roles for users and access restrictions
-* Create a Group
-* View associated Group
+* ~~Search Users~~
+* ~~Define roles for users and access restrictions~~
+* ~~Create a Group~~
+* ~~View associated Group~~
+* ~~View Group information~~
+* ~~View Group members~~

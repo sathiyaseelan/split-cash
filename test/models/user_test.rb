@@ -2,6 +2,10 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
 
+  setup do
+    @current_user = users(:user1)
+  end
+  
   test "should not save user without email" do
     user = User.new(first_name: "test", last_name: 't')
     assert_not user.save
@@ -15,7 +19,12 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "should not save duplicate email id" do
-    user = User.create(email: users(:test_user1).email, password: 'password', confirmed_at: Time.now)
+    user = User.create(email: @current_user.email, password: 'password', confirmed_at: Time.now)
     assert_not user.save
   end
+
+  test "should be able to get user's group" do
+    assert_not_empty @current_user.groups
+  end
+
 end

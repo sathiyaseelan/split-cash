@@ -1,7 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-
-two:
-  name: MyString
+group1:
+  name: room
+  description: room management
+group2:
+  name: office
+  description: office management

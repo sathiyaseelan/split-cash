@@ -14,7 +14,6 @@ class GroupsController < ApplicationController
         @groups_as_moderator << member.group
       end
     end
-    render 'index'
   end
 
   # GET /groups/1
@@ -38,7 +37,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     respond_to do |format|
       if @group.save
-        if current_user.add_role(:moderator, @group)
+        if current_user.members << Member.new(user: current_user, group: @group, role: :moderator)
           format.html { redirect_to @group, notice: 'Group was successfully created.' }
           format.json { render :show, status: :created, location: @group }
         else
@@ -83,19 +82,19 @@ class GroupsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
       @group = Group.find(params[:id])
-      
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:name)
+      params.require(:group).permit(:name, :description)
     end
-    
+
     def member_params
       params.require(:group).permit(:user_id)
     end
