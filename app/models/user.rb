@@ -17,5 +17,10 @@ class User < ApplicationRecord
     User.where("email like ? or first_name like ? or last_name like ?","%#{search_param}%","%#{search_param}%","%#{search_param}%")
   end
 
+  def confirm
+    super
+    UserMailer.welcome_email(self).deliver_later
+    p UserMailer.welcome_email(self).message
+  end
 
 end
