@@ -1,47 +1,37 @@
-<div id="user-lookup">
-<h3>Search for users</h3>
-
-<%= form_tag search_users_path, remote: true, method: :get, id: 'user-lookup-form' do %>
-
-    <div class="form-group row no-padding text-center col-md-12">
-        <div class="col-md-10">
-        <%= text_field_tag :search_param, params[:search_param], placeholder: 'First Name, Last Name or Email', autofocus: true,
-                                                    class: 'form-control search-box input-lg' %>
-        </div>
-        <div class="col-md-2">
-            <%= button_tag(type: :submit, class: 'btn btn-lg btn-success') do %>
-            <i class='fa fa-search'></i> Look up user
-        <% end %>
-        </div>
-    </div>
-<% end %>
-<%= render 'common/spinner' %>
 <% if @users %>
-    <% if @users.size > 0 %>
-        <h3>Search Results</h3>
-        <div id="user-lookup-results" class="well results-block col-md-10">
-        <table class="search-results-table col-md-12">
-            <tbody>
-            <% @users.each do |user| %>
-            <tr>
-                <td><strong>Name:</strong> <%= user.full_name %></td>
-                <td><strong>Email:</strong> <%= user.email %></td>
-                <td>
-                    <strong>Profile:</strong> <%= link_to "View Profile", '', class: "btn btn-xs btn-success" %>
-                    <%= link_to "Add as my user", '',
-                                class: 'btn btn-xs btn-success', method: :post %>
-                        <span class='label label-primary'>You are users</span>
-                </td>
-            </tr>
-            <% end %>
-            </tbody>
-        </table>
-        </div>
-        <% else %>
-            <p class="lead col-md-12">
-            No people match this search criteria
-            </p>
-        <% end %>
+  <% if @users.size > 0 %>
+    <h3>Search Results</h3>
+    <div id="user-lookup-results" class="well results-block col-md-10">
+    <table class="search-results-table col-md-12">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><strong><%= user.full_name %></strong></td>
+        <td><strong><%= user.email %></strong></td>
+        <td>
+          <%= link_to "View Profile", '', class: "btn btn-xs btn-success" %>
+          <%= link_to "Add as my user", '',
+                class: 'btn btn-xs btn-success', method: :post %>
+            <span class='label label-primary'>You are users</span>
+        </td>
+      </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <div class="center">
+    <%= paginate @users, :remote => true, html:{type: :submit} %>
+  </div>
+    </div>
+    <% else %>
+      <p class="lead col-md-12">
+      No people match this search criteria
+      </p>
+    <% end %>
 <% end %>
-<div id="user-lookup-errors" style="display: none;" class="col-md-8 col-md-offset-1 alert alert-danger"></div>
-</div>

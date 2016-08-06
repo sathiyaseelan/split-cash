@@ -34,7 +34,7 @@ Technical Requirements
 * Heroku
 * PostgreSQL
 * Gravatar
-*
+
 
 Iteration 1
 --
@@ -46,4 +46,14 @@ Iteration 1
 * ~~Sign up / Login Customization~~
 * ~~Confirmation mail Customization~~
 * ~~Create Model,pages,controllers skeleton for user management~~
-* Create Test classes for User Management
+* ~~Create Test classes for User Management~~
+
+
+Iteration 2
+--
+
+* Send invitaion mail for new / existing user
+* Search Users
+* Define roles for users and access restrictions
+* Create a Group
+* View associated Group

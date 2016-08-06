@@ -1,0 +1,20 @@
+<div id="user-lookup">
+<h3>Search for users</h3>
+<%= form_tag lookup_users_path, remote: true, method: :get, id: 'user-lookup-form' do %>
+    <div class="form-group row no-padding text-center col-md-12">
+        <div class="col-md-10">
+        <%= text_field_tag :search_param, params[:search_param], placeholder: 'First Name, Last Name or Email', autofocus: true,
+                                                    class: 'form-control search-box input-lg' %>
+        </div>
+        <div class="col-md-2">
+          <%= button_tag(type: :submit, class: 'btn btn-lg btn-success') do %>
+            <i class='fa fa-search'></i> Look up user
+          <% end %>
+        </div>
+    </div>
+    <%= render 'common/spinner' %>
+    <div id="lookup_container">
+    </div>
+<% end %>
+<div id="user-lookup-errors" style="display: none;" class="col-md-8 col-md-offset-1 alert alert-danger"></div>
+</div>
