@@ -5,7 +5,7 @@ Rails.application.configure do
   config.cache_classes = true
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { :host => 'split-cash.herokuapp.com', :protocol => 'https'}
+  config.action_mailer.default_url_options = { :host => ENV['HOST_NAME'], :protocol => 'https'}
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
