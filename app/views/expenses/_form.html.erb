@@ -1,0 +1,66 @@
+<%= form_for :expense, url: group_expenses_path, :html => { :class => "form-horizontal expense" } do |f| %>
+
+  <% if @expense.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@expense.errors.count, "error") %> prohibited this expense from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @expense.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :description, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_area :description, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:description) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :user_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.select(:user_id, options_for_select(Group.member_names_with_ids(params[:group_id]))) %>
+    </div>
+    <%=f.error_span(:user_id) %>
+  </div>
+  <div class="form-group">
+      <%= f.hidden_field :group_id, value: params[:group_id] %>
+    <%=f.error_span(:group_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :amount, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :amount, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:amount) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :category, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :category, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:category) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :paid_on, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :paid_on, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:paid_on) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                group_expenses_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>

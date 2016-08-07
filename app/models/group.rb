@@ -8,6 +8,10 @@ class Group < ApplicationRecord
       members.select {|member| member.role == 'moderator'}
     end
 
+    def self.member_names_with_ids(group_id)
+      Group.includes(:members, :users).find(group_id).users.pluck(:first_name, :last_name, :id).map{|x| [x.first + x[1]] << x.last }
+    end
+
     def add_member(user)
       Member.create(group_id: self.id, user_id: user.id, role: :member)
     end

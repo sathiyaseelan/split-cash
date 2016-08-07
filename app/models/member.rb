@@ -10,4 +10,7 @@ class Member < ApplicationRecord
     role == 'member'
   end
 
+  def name
+    user.full_name
+  end
 end

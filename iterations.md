@@ -16,9 +16,8 @@ Features
   * View Group information
   * View Group members
   * View Group's expenses
-* Money Management
-  * Add Credit record
-  * Add Debit record
+* Expense Management
+  * Add Expense record
   * Auto Calculate member's due
   * Archive Previous month record
   * Generate monthly report
@@ -51,10 +50,17 @@ Iteration 1
 Iteration 2
 --
 
-* Send invitaion mail for new / existing user
 * ~~Search Users~~
 * ~~Define roles for users and access restrictions~~
 * ~~Create a Group~~
 * ~~View associated Group~~
 * ~~View Group information~~
 * ~~View Group members~~
+
+Iteration 3
+--
+
+* ~~Expense Management~~
+* Add Expense record
+* Auto Calculate member's due
+* Display current due in group expense page

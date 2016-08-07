@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+
   resources :members
-  resources :groups
+  resources :groups do
+    resources :expenses
+  end
   devise_for :users, :controllers => { :registrations => 'user/registrations'}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'pages#home'
