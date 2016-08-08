@@ -1,6 +1,7 @@
 class Group < ApplicationRecord
 
     has_many :members, :dependent => :destroy
+    has_many :expenses, :dependent => :destroy
     has_many :users, through: :members
     validates :name, presence: true
     validates :description, presence: true
@@ -9,7 +10,7 @@ class Group < ApplicationRecord
     end
 
     def self.member_names_with_ids(group_id)
-      Group.includes(:members, :users).find(group_id).users.pluck(:first_name, :last_name, :id).map{|x| [x.first + x[1]] << x.last }
+      Group.includes(:members, :users).find(group_id).users.pluck(:first_name, :last_name, :id).map{|x| [x.first << ", " << x[1]] << x.last }
     end
 
     def add_member(user)

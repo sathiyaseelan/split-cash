@@ -61,6 +61,6 @@ Iteration 3
 --
 
 * ~~Expense Management~~
-* Add Expense record
+* ~~Add Expense record~~
 * Auto Calculate member's due
 * Display current due in group expense page

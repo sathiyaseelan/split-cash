@@ -23,3 +23,17 @@ a.undecorated_link:hover{
   color: inherit;
   background-color: inherit;
 }
+
+.member_due {
+  display: none;
+  text-align: center;
+  font-weight: bolder;
+}
+.member_name {
+  text-align: center;
+  font-weight: lighter;
+}
+
+.member {
+  height: 50px;
+}

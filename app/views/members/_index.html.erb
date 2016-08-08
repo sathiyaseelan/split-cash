@@ -1,11 +1,13 @@
 <h3>Members</h3>
-<div class="row">
-  <% @members.each do |member| %>
 
+  <% @members.each_with_index do |member,i| %>
+    <% if i % 4 ==  0 %>
+      <div class="row">
+    <% end %>
     <div class="col-sm-4 col-md-3">
-      <div class="member-box thumbnail">
+      <div class="member-box thumbnail" data-due-amount=<%=member.due_amount%> >
         <div class="caption">
-          <h4><%= member.user.email%></h4>
+          <h4 class="member_name"><%= member.user.full_name%></h4>
             <%= hidden_field_tag "member_" + member.id.to_s, member.role %>
           <p class="action_bar">
           <%= link_to '', class: 'btn btn-success btn-sm' do%>
@@ -18,11 +20,16 @@
             data: { confirm: 'Are you sure?' } do %>
             <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
             <% end %>
+            <h4 class="member_due" ><%=member.due_amount%></h4>
           </p>
         </div>
       </div>
     </div>
+    <% if (i + 1) % 4 ==  0 %>
+      </div>
+    <% end %>
   <% end %>
+
   <div class="col-sm-4 col-md-3">
     <div class="member-box thumbnail">
       <div class="caption center">
@@ -35,7 +42,4 @@
     </div>
   </div>
 </div>
-
 <br>
-
-<%= link_to 'New Member', new_member_path %>
